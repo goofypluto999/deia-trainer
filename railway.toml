@@ -1,0 +1,11 @@
+[build]
+  builder = "python"
+  buildCommand = "pip install -r requirements.txt"
+
+[deploy]
+  startCommand = "python main.py"
+  env = ["OPENAI_API_KEY", "SECRET_KEY"]
+
+[[ mounts ]]
+  name = "data"
+  path = "/app"
