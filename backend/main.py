@@ -34,7 +34,7 @@ ACCESS_TOKEN_EXPIRE_DAYS = 30
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 
-DATABASE_URL = "sqlite:///./deia_trainer.db"
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./deia_trainer.db")
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 Base = declarative_base()
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
