@@ -22,7 +22,7 @@ import * as Speech from 'expo-speech';
 import * as ImagePicker from 'expo-image-picker';
 import axios from 'axios';
 
-const API_URL = 'http://192.168.0.177:8000';
+const API_URL = 'https://deia-trainer-backend-production.up.railway.app';
 
 const COLORS = {
   primary: '#FFE550',
