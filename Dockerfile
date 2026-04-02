@@ -7,6 +7,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY backend/ .
 
+ENV PORT=8000
 ENV OPENAI_API_KEY=""
 ENV SECRET_KEY="deia-trainer-jwt-secret-key-2024"
 
