@@ -1,7 +1,0 @@
-[build]
-buildCommand = "pip install -r requirements.txt"
-createDir = "./backend"
-
-[nixpacks]
-runtime = "python3"
-run = "cd backend && python main.py"
