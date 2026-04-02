@@ -35,7 +35,14 @@ ACCESS_TOKEN_EXPIRE_DAYS = 30
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./deia_trainer.db")
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://")
+
+if DATABASE_URL.startswith("sqlite"):
+    engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+else:
+    engine = create_engine(DATABASE_URL)
 Base = declarative_base()
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
